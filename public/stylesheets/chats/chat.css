@@ -1,0 +1,221 @@
+#template{
+  display:none;
+}
+
+.users , .chats{
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  max-width: 250px;
+  min-width: 150px;
+  overflow-y: auto;
+}
+
+.user, .chat{
+  overflow: auto;
+  /*margin: 1px 10px;*/
+  cursor: pointer;
+  border-bottom: 1px solid #d6d7da;
+}
+
+.user:hover, .chat:hover{
+  background-color: #CEECF5;
+}
+
+.chat-active{
+  background-color: #0080FF;
+  color: #FAFAFA;
+}
+
+.chat-active:hover{
+  color: gray;
+}
+
+.user .image{
+  /*background-image: url("../../images/default_user.png");*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin: 2px 10px 2px;
+}
+
+.user .image-modal{
+  /*background-image:url('/images/default_user.png');*/
+  background-size:cover;
+  background-repeat: no-repeat;
+  width:30px;
+  height:30px;
+  float: left;
+  margin: 2px 10px 2px;
+}
+
+.user .name, .chat .name{
+  height: 40px;
+  overflow: hidden;
+  vertical-align: middle;
+  display: table-cell;
+  padding: 0 8px;
+}
+
+.chat .name{
+  margin: 1px 10px;
+}
+
+.user .name{
+  margin: 0 10px 1px;
+}
+
+.container{
+  margin-top:10px;
+}
+
+#current-usr{
+  overflow:auto;
+}
+
+#current-usr .current-user-content{
+  float:right;
+}
+#current-usr img{
+  width:40px;
+  height:40px;
+}
+
+.textarea-chat{
+  border: 1px solid #ddd;
+  margin: 0;
+  padding: 0;
+  height: 47px;
+  resize: none;
+}
+
+.send-btn{
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  height: 47px;
+  width: 96px;
+}
+
+.left-content{
+  float:left;
+  width:160px;
+}
+
+.right-content{
+  float:left;
+  margin-left:10px;
+}
+
+.message-container{
+  overflow:auto;
+}
+.message-img{
+  height:30px;
+  width:30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 2px;
+}
+
+.message-left{
+  float:left;
+}
+
+.message-right{
+  float:right;
+}
+
+.message-author{
+  color: #A4A4A4;
+  font-size: 0.9em;
+  margin: 0 5px;
+}
+
+.message-content{
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.message-content-left{
+  margin: 20px 10% 10px 40px;
+  background-color: #E0ECF8;
+}
+
+.message-content-right{
+  margin: 20px 40px 10px 10%;
+  background-color: #E0F8E0;
+}
+
+.chat-contents{
+  overflow-y: auto;
+  border: 1px solid #ddd;
+}
+
+.chat-title{
+  font-size: 1.1em;
+}
+
+.add-user-btn{
+  margin: 5px 0;
+  float: right;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.user-modal-left{
+  height: 300px;
+  width: 40%;
+  border: 1px solid #ddd;
+  margin: 0 2%;
+  float: left;
+  overflow-y: auto;
+}
+
+.user-modal-right{
+  height: 300px;
+  width: 40%;
+  border: 1px solid #ddd;
+  margin: 0 2%;
+  float: right;
+  overflow-y: auto;
+}
+
+.user-exchange-sign-panel{
+  float: left;
+  width: 10%;
+  text-align: center;
+  height: 300px;
+}
+
+.user-exchange-sign{
+  margin-top:143px;
+}
+
+.group-name-container-modal{
+  margin: 0 20px 10px;
+}
+
+.group-name-modal{
+  margin-right: 10px;
+}
+
+.group-name-modal-input{
+  width:300px;
+  display: inline-block;
+}
+
+.error-message{
+  color:red;
+}
+
+.chat-notification{
+  color:#5882FA;
+  margin:5px;
+}
+.nav-menu-btn{
+  background-image:none;
+}

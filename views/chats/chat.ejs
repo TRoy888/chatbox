@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<%include ../layouts/head.ejs%>
+<link rel="stylesheet" href="/stylesheets/chats/chat.css">
+<body>
+<div class="container">
+  <div id="current-usr">
+    <div style="float:left;"><button id="hide-left-content-btn" status="hide" class="btn btn-default glyphicon glyphicon-chevron-left nav-menu-btn">Hide</button></div>
+    <div class="current-user-content">
+      <img id="current-user-image" src="<%=user_image%>">
+      <strong><%=userName%></strong>
+      <button class="fa fa-picture-o btn btn-default nav-menu-btn" id="update-picture-btn" data-toggle="modal" data-target="#update-user-picture"></button>
+      <a href="/sessions/logout"><button class="fa fa-sign-out btn btn-default nav-menu-btn"></button></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="left-content">
+      <ul class="nav nav-tabs" role="tablist" id="chatbox-tab">
+        <li role="presentation" class="active">
+          <a href="#user-tab" aria-controls="user-tab" role="tab" data-toggle="tab">Users</a>
+        </li>
+        <li role="presentation">
+          <a href="#chats-tab" aria-controls="chats-tab" role="tab" data-toggle="tab">Chats <span id="incoming-message-notification" style="display:none; color:#FE9A2E" class="fa fa-bell-o"></span></a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="user-tab">
+          <div id="users"></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="chats-tab">
+          <div id="chats" class="chats"></div>
+        </div>
+      </div>
+    </div>
+    <div class="right-content">
+      <div class="chat-title">
+        <strong>Chat </strong>
+        <span id="active-chat-room"></span>
+        <span><button id="add-user-btn" type="button" class="add-user-btn btn btn-default fa fa-user-plus" data-toggle="modal" data-target="#addUserModal"></button></span></div>
+      <div id="chat-contents-id" class="chat-contents">
+        <!-- <div class="message-container">
+          <div class="message-img message-left" style="background-image:url('/images/default_user.png');"></div>
+          <div class="message-author message-left">
+            Punyawee Pakdiying
+          </div>
+          <div class="message-content message-content-left">
+            I fell in love with web development a year before med school started. Over the years, I've improved and I registered a Company in partnership with someone who's now a graduate of computer science. I'm now sure I won't practice medicine, and I feel confused, whether its a good idea to drop out and focus on technology or just wait a bit or try and enroll in a technology course?
+          </div>
+        </div>
+
+        <div class="message-container">
+          <div class="message-img message-right" style="background-image:url('/images/default_user.png');"></div>
+          <div class="message-author message-right">
+            Punyawee Pakdiying
+          </div>
+          <div class="message-content message-content-right">
+            I fell in love with web development a year before med school started. Over the years, I've improved and I registered a Company in partnership with someone who's now a graduate of computer science. I'm now sure I won't practice medicine, and I feel confused, whether its a good idea to drop out and focus on technology or just wait a bit or try and enroll in a technology course?
+          </div>
+        </div> -->
+      </div>
+      <textarea id="message-textarea" class="textarea-chat"></textarea>
+      <button id="send-btn" class="send-btn btn btn-default">Send</button>
+    </div>
+  </div>
+</div> <!-- /container -->
+
+<!--template-->
+<div id ="template">
+
+  <div class="user">
+    <div class="image">
+      <!-- <img src="/images/default_user.png"/> -->
+    </div>
+    <div class="name">
+      <!-- <span>Punyawee Pakdiying</span> --><!--example-->
+    </div>
+  </div> <!--user-->
+
+  <div class="chat">
+    <div class="name">
+      <!-- <span>Chat rooms</span> --><!--example-->
+    </div>
+  </div> <!--chat-->
+
+  <div class="message-container">
+    <div class="message-img"></div>
+    <div class="message-author"></div>
+    <div class="message-content"></div>
+  </div><!--message-right-->
+
+</div>
+<!--/template-->
+
+<!-- Add Users Modal Dialog -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add User to a Current Chat</h4> Click at the users to add them <span id="create-group-message" class="error-message"></span>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="group-name-container-modal"><span class="group-name-modal">Group Name:</span><input id="group-name-modal-input" type="text" class="form-control group-name-modal-input"></div>
+        </div>
+        <div class="row">
+          <div class="user-modal-left"></div>
+          <div class="user-exchange-sign-panel"><i class="fa fa-exchange user-exchange-sign"></i></div>
+          <div class="user-modal-right"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="save-added-user">Add Users</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--update User's Picture Dialog-->
+<div class="modal fade" id="update-user-picture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Update Profile Picture<h4>
+      </div>
+      <div class="modal-body">
+        <div class="group-name-container-modal"><span class="group-name-modal">Image URL:</span><input id="user-update-picture-url" type="text" class="form-control group-name-modal-input"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="update-user-picture-submit">Add Users</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%include ../layouts/defaultJS.ejs%>
+<script src="/javascripts/chats/chat.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var currentUserEmail = '<%=user_email%>';
+  var currentUserName = '<%=userName%>';
+  var currentUserLastChatId = '<%=user_last_chat_id%>';
+  // var socket = io.connect('http://localhost:3000');
+  var socket = io();
+  socket.on('connect', function(){
+		socket.emit('user-connected', currentUserEmail);
+	});
+
+  socket.on('message-received', function(data){
+    console.log(data);
+    chat.updateMessage(data.message, data.author, data.chat, data.author.email == currentUserEmail);
+  });
+
+  $("#send-btn").click(function(event){
+    var message = $("#message-textarea").val();
+    $("#message-textarea").val("");
+    if(message){
+      socket.emit('message-sent', {chatroom:chat.activeChatId
+                                    , message:message
+                                    , contact_user_id: chat.activeContactUserId
+                                    , chat_room_name:$("#active-chat-room").html().replace(":","").trim()});
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<%include ../layouts/head.ejs%>
+<link rel="stylesheet" href="/stylesheets/sessions/login.css">
+<body>
+<div class="container">
+  <form class="form-signin" method="post">
+    <%if(typeof message != 'undefined'){%>
+      <div class="alert alert-warning">
+        <strong><%=message%></strong>
+      </div>
+    <%}%>
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="email" class="sr-only">Email address</label>
+    <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+    <div>Register click <a href="/users/create">here</a></div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+  <%include ../layouts/defaultJS.ejs%>
+</div> <!-- /container -->
+</body>
+</html>

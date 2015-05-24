@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>chatbox</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-5708779600604746635</string>
+			<key>name</key>
+			<string>local-chatbox</string>
+			<key>port</key>
+			<integer>8889</integer>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentFilter</key>
+			<dict/>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK8QDwcIFRYXGBkfICEoLDA0OFUkbnVs
+			bNMJCgsMEBRXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6MNDg+A
+			AoADgASjERITgAWABoAKgA5UdHlwZVRyb3dzVGtleXNfECZTZWxl
+			Y3Rpb25EZXRhaWxUeXBlUHJpbWFyeUtleWVkRGV0YWlsc9MJCgsa
+			HB6hG4AHoR2ACIAJUjczCdIiIyQlWiRjbGFzc25hbWVYJGNsYXNz
+			ZXNfEBNOU011dGFibGVEaWN0aW9uYXJ5oyQmJ1xOU0RpY3Rpb25h
+			cnlYTlNPYmplY3TSCgspK6EqgAuADdILLS4vWU5TLnN0cmluZ4AM
+			Umlk0iIjMTJfEA9OU011dGFibGVTdHJpbmejMTMnWE5TU3RyaW5n
+			0iIjNTZeTlNNdXRhYmxlQXJyYXmjNTcnV05TQXJyYXnSIiMmOaIm
+			J18QD05TS2V5ZWRBcmNoaXZlctE8PVRkYXRhgAEACAARABoAIwAt
+			ADIANwBJAE8AVgBeAGkAcAB0AHYAeAB6AH4AgACCAIQAhgCLAJAA
+			lQC+AMUAxwDJAMsAzQDPANIA0wDYAOMA7AECAQYBEwEcASEBIwEl
+			AScBLAE2ATgBOwFAAVIBVgFfAWQBcwF3AX8BhAGHAZkBnAGhAAAA
+			AAAAAgEAAAAAAAAAPgAAAAAAAAAAAAAAAAAAAaM=
+			</data>
+			<key>contentSortCol</key>
+			<string>user_id</string>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 597}, {1702, 627}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>SELECT chats.id 
+FROM chats, user_chat 
+WHERE chats.id = user_chat.chat_id 
+	and chats.is_group_chat is false
+	AND (user_chat.user_id = 51 OR user_chat.user_id = 44)
+	
+GROUP BY chats.id HAVING COUNT(1)=2</string>
+			<key>table</key>
+			<string>user_chat</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>202</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>SELECT chats.id 
+FROM chats, user_chat 
+WHERE chats.id = user_chat.chat_id 
+	and chats.is_group_chat is true
+	AND (user_chat.user_id = 51 OR user_chat.user_id = 44)
+	
+GROUP BY chats.id HAVING COUNT(1)=2</string>
+		<string>SELECT chats.id 
+FROM chats, user_chat 
+WHERE chats.id = user_chat.chat_id 
+	AND (user_chat.user_id = 51 OR user_chat.user_id = 44)
+	and chats.is_group_chat is false
+GROUP BY chats.id HAVING COUNT(1)=2</string>
+		<string>SELECT chats.id 
+FROM chats, user_chat 
+WHERE chats.id = user_chat.chat_id 
+	AND (user_chat.user_id = 51 OR user_chat.user_id = 52)
+	and chats.is_group_chat is false
+GROUP BY chats.id HAVING COUNT(1)=2</string>
+		<string>SELECT chats.id 
+FROM chats, user_chat 
+WHERE chats.id = user_chat.chat_id 
+	AND (user_chat.user_id = 44 OR user_chat.user_id = 52)
+	and chats.is_group_chat is false
+GROUP BY chats.id HAVING COUNT(1)=2</string>
+		<string>SELECT chats.id 
+FROM chats, user_chat 
+WHERE chats.id = user_chat.chat_id 
+	AND (user_chat.user_id = 44 OR user_chat.user_id = 52)
+GROUP BY chats.id HAVING COUNT(1)=2</string>
+		<string>SELECT chats.id 
+FROM chats, user_chat 
+WHERE chats.id = user_chat.chat_id 
+	AND (user_chat.user_id = ? OR user_chat.user_id = ?)
+GROUP BY chats.id HAVING COUNT(1)=2</string>
+		<string>SELECT * FROM users where id NOT IN (44, 52)</string>
+		<string>SELECT user_id from user_chat where chat_id = 27</string>
+		<string>SELECT messages.*, users.username, users.picture_url  FROM messages, users WHERE messages.user_id = users.id and messages.chat_id = 27 order by time</string>
+		<string>SELECT messages.*, users.username, users.picture_url  FROM messages, users WHERE messages.user_id = users.id and messages.chat_id = 27 order by time
+
+SELECT user_id from user_chat where chat_id = 27</string>
+		<string>SELECT messages.*, users.username, users.picture_url  FROM messages, users WHERE messages.user_id = users.id and messages.chat_id = 70 order by time</string>
+		<string>select username from users where id =44 or id=40</string>
+		<string>select username from users where id =44</string>
+		<string>select chats.id from chats, user_chat where chats.id = user_chat.chat_id and (user_chat.user_id = 44 or user_chat.user_id = 40) group by chats.id having count(1)=2</string>
+		<string>select chats.id from chats, user_chat where chats.id = user_chat.chat_id and (user_chat.user_id = 44 or user_chat.user_id = 53) group by chats.id having count(1)=2</string>
+		<string>select chats.id from chats, user_chat where chats.id = user_chat.chat_id and (user_chat.user_id = 44 or user_chat.user_id = 44) group by chats.id having count(1)=2</string>
+		<string>select chats.id from chats, user_chat where chats.id = user_chat.chat_id and chats.id in (select chat_id from user_chat where user_id = 44) group by chats.id having count(1)=2</string>
+		<string>select min(chats.id) from chats, user_chat where chats.id = user_chat.chat_id and chats.id in (select chat_id from user_chat where user_id = 44) group by chats.id having count(1)=2</string>
+		<string>select min(chats.id), count(1) from chats, user_chat where chats.id = user_chat.chat_id and chats.id in (select chat_id from user_chat where user_id = 44) group by chats.id having count(1)=2</string>
+		<string>select min(chats.id), count(1) from chats, user_chat where chats.id = user_chat.chat_id and chats.id in (select chat_id from user_chat where user_id = 44) group by chats.id</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.38</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
