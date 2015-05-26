@@ -94,7 +94,7 @@ var chat={
           eventData.caller.setActiveChatType(dataModel.chat);
 
           // console.log(data);
-          $("#active-chat-room").html(": "+eventData.chat_name);
+          $("#active-chat-room").html(": "+eventData.chat_name + ((dataModel.chat.is_group_chat)?" (Group)":""));
           var container = $("#"+eventData.caller.chatContentId)
             , template = $("#template").find("div.message-container");
           container.empty();
